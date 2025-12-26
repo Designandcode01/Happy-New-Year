@@ -1,11 +1,11 @@
-import React, { ReactNode } from 'react';
+
 import { ArrowUpRight, Github } from "lucide-react";
 import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
 import Image from "next/image";
-import Link from 'next/link';
+
 
 interface Project {
-  title: ReactNode;
+  title: string;
   description: string;
   image?: string;
   tags: string[];
@@ -15,7 +15,7 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title:<Link href={"https://aestheticmedicinesurgery.vercel.app"}>E-Clinic</Link>,
+    title:"E-Clinic",
     description:
       "A responsive portfolio website showcasing projects, skills, and contact information with smooth animations and optimal performance.",
     image: "/projects/e-clinic.png",
@@ -24,7 +24,7 @@ const projects: Project[] = [
     github: "#",
   },
   {
-    title:<Link href={"https://pursuitmedicalschoolquiz.vercel.app"}>Pursuit Medical School</Link>,
+    title:"Pursuit Medical School",
     description:
       "Pursuit Medical School is an innovative e-learning platform designed to revolutionize medical education by providing aspiring physicians with comprehensive, interactive, and accessible preparation for their medical school journey.",
     image: "/projects/School.png",
@@ -33,7 +33,7 @@ const projects: Project[] = [
     github: "#",
   },
   {
-    title:<Link href={"https://pursuit-digital-services.vercel.app"}>Pursuit Digital Services</Link>,
+    title:"Pursuit Digital Services",
     description:
       "Pursuit Digital Services transforms businesses through cutting-edge digital solutions that blend innovative technology with strategic execution.",
     image: "/projects/Services.png",
@@ -88,13 +88,13 @@ export const Projects: React.FC = () => {
                     className="w-full h-full object-cover"
                   />
                 ) : (
-                  <div className="w-full h-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
+                  <div className="w-full h-full bg-linear-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
                     <span className="text-muted-foreground">No Image</span>
                   </div>
                 )}
                 <div
                   className="absolute inset-0 
-                bg-gradient-to-t from-card via-card/50
+                bg-linear-to-t from-card via-card/50
                  to-transparent opacity-60"
                 />
                 {/* Overlay Links */}
@@ -126,12 +126,24 @@ export const Projects: React.FC = () => {
                   <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
-                  <ArrowUpRight
+                  <a
+  href={project.link}
+  // href="https://aestheticmedicinesurgery.vercel.app"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Open in new tab"
+  className="inline-flex items-center"
+>
+  <ArrowUpRight
+    className="w-5 h-5 text-muted-foreground hover:text-primary hover:translate-x-1 hover:-translate-y-1 transition-all"
+  />
+</a>
+                  {/* <ArrowUpRight
                     className="w-5 h-5 
-                  text-muted-foreground group-hover:text-primary
-                   group-hover:translate-x-1 
-                   group-hover:-translate-y-1 transition-all"
-                  />
+                    text-muted-foreground group-hover:text-primary
+                    group-hover:translate-x-1 
+                    group-hover:-translate-y-1 transition-all"
+                  /> */}
                 </div>
                 <p className="text-muted-foreground text-sm">
                   {project.description}
