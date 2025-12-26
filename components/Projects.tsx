@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { ArrowUpRight, Github } from "lucide-react";
 import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
 import Image from "next/image";
+import Link from 'next/link';
 
 interface Project {
-  title: string;
+  title: ReactNode;
   description: string;
   image?: string;
   tags: string[];
@@ -14,7 +15,7 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "E-Clinic",
+    title:<Link href={"https://aestheticmedicinesurgery.vercel.app"}>E-Clinic</Link>,
     description:
       "A responsive portfolio website showcasing projects, skills, and contact information with smooth animations and optimal performance.",
     image: "/projects/e-clinic.png",
@@ -23,7 +24,7 @@ const projects: Project[] = [
     github: "#",
   },
   {
-    title: "Pursuit Medical School",
+    title:<Link href={"https://pursuitmedicalschoolquiz.vercel.app"}>Pursuit Medical School</Link>,
     description:
       "Pursuit Medical School is an innovative e-learning platform designed to revolutionize medical education by providing aspiring physicians with comprehensive, interactive, and accessible preparation for their medical school journey.",
     image: "/projects/School.png",
@@ -32,7 +33,7 @@ const projects: Project[] = [
     github: "#",
   },
   {
-    title: "Pursuit Digital Services",
+    title:<Link href={"https://pursuit-digital-services.vercel.app"}>Pursuit Digital Services</Link>,
     description:
       "Pursuit Digital Services transforms businesses through cutting-edge digital solutions that blend innovative technology with strategic execution.",
     image: "/projects/Services.png",
